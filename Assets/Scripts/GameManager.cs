@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public float cameraZoomSmoothing;
     public float cameraZoomMax;
     float cameraZoomMin;
+    public AudioClip[] slapSounds;
 
     [Space]
     [SerializeField] Slider slider;
@@ -153,6 +154,11 @@ public class GameManager : MonoBehaviour
         Invoke("DestroyNPC", 3);
         
         EndDialogue();
+    }
+
+    public void PlaySlapSound()
+    {
+        audioSource.PlayOneShot(slapSounds[Random.Range(0, slapSounds.Length)]);
     }
 
     private void DestroyNPC()

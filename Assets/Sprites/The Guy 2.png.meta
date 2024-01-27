@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,322 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: The Guy 2_Head
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 2240
+        width: 497
+        height: 608
+      alignment: 9
+      pivot: {x: 0.6005522, y: 0.19861925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfe86b746a6dcce4082d73d3fd53bb74
+      internalID: 305868894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Arm_Front
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 2273
+        width: 516
+        height: 561
+      alignment: 9
+      pivot: {x: 0.7824785, y: 0.8117837}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e71ee1f8282e8c04b9c19ee03138e2aa
+      internalID: -1328103088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Arm_Back
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 2274
+        width: 504
+        height: 539
+      alignment: 9
+      pivot: {x: 0.2273223, y: 0.2450284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f997c8977af767c419ecb44fc164f9af
+      internalID: 856830509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_3
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 1179
+        width: 1795
+        height: 1669
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 214918bdc5bef24469e75673bd64dc3a
+      internalID: -2115845549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Body
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1252
+        width: 674
+        height: 929
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67449e6d97a905b4ab0cc9e569b479f7
+      internalID: -1533173125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Leg_Back
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 1698
+        width: 276
+        height: 483
+      alignment: 9
+      pivot: {x: 0.28875557, y: 0.83626705}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0402ce4bb0a349b4482e905a0424a0f2
+      internalID: 30014351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Leg Front
+      rect:
+        serializedVersion: 2
+        x: 1171
+        y: 1696
+        width: 251
+        height: 485
+      alignment: 9
+      pivot: {x: 0.33408213, y: 0.8348804}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bc183c092fbd954d8e1a8198fac01da
+      internalID: 998445590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_7
+      rect:
+        serializedVersion: 2
+        x: 3001
+        y: 91
+        width: 1174
+        height: 1655
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdffab13f9f91e945b0268f056db10db
+      internalID: -1560509520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Face_2
+      rect:
+        serializedVersion: 2
+        x: 1377
+        y: 1375
+        width: 194
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebac445c3dc3f749889d2c4a6bbf338
+      internalID: 1434278375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Face_0
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1359
+        width: 198
+        height: 244
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b27ef20040303b4fa289b3589801aca
+      internalID: 1970855091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Face_3
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 1371
+        width: 205
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1f1e58dc6dd55419fc281370ea818b
+      internalID: 1720472970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Arm Smear
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 95
+        width: 1462
+        height: 987
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f034ae75878d06540aaad1e4c571968c
+      internalID: 522418063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Head_Back
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 750
+        width: 383
+        height: 542
+      alignment: 9
+      pivot: {x: 0.4578615, y: 0.27369753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8d7c634535ee74a958ae854f169b1d
+      internalID: 1619798951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Hair
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 840
+        width: 497
+        height: 452
+      alignment: 9
+      pivot: {x: 0.5194836, y: 0.7892154}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d991cd7508995d449a62dc87546cae4
+      internalID: -11140013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: The Guy 2_Face_1
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 1362
+        width: 214
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f66f37796b9f7784daf84db7d99de569
+      internalID: -450963183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +434,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      The Guy 2_10: -1278017533
+      The Guy 2_11: 765458784
+      The Guy 2_13: -774283919
+      The Guy 2_14: 43468000
+      The Guy 2_15: -1941449208
+      The Guy 2_16: 555737896
+      The Guy 2_18: -21771241
+      The Guy 2_3: -2115845549
+      The Guy 2_7: -1560509520
+      The Guy 2_8: -1477457768
+      The Guy 2_9: -560454571
+      The Guy 2_Arm Smear: 522418063
+      The Guy 2_Arm_Back: 856830509
+      The Guy 2_Arm_Front: -1328103088
+      The Guy 2_Body: -1533173125
+      The Guy 2_Face_0: 1970855091
+      The Guy 2_Face_1: -450963183
+      The Guy 2_Face_2: 1434278375
+      The Guy 2_Face_3: 1720472970
+      The Guy 2_Hair: -11140013
+      The Guy 2_Head: 305868894
+      The Guy 2_Head_Back: 1619798951
+      The Guy 2_Leg Front: 998445590
+      The Guy 2_Leg_Back: 30014351
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
