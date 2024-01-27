@@ -4,6 +4,7 @@ public class NPC : MonoBehaviour
 {
     static Transform player;
 
+    public Dialogue dialogue;
     public float moveSpeed;
     public bool canMove;
     Vector3 moveInput;
@@ -14,6 +15,8 @@ public class NPC : MonoBehaviour
     {
         if (!player)
             player = GameObject.Find("Player").transform;
+
+        GameManager.npcs.Add(this);
 
         rb = GetComponent<Rigidbody>();
     }
