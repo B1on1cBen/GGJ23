@@ -21,10 +21,15 @@ MonoBehaviour:
   - Your money's in here!
   - Even the picture of your kids!
   - Please, just take your wallet back!
-  - Take it from my hand, it's right here!
-  - It's your wallet,
+  - Take it from my hand, it's right here! It's your wallet!
   - it's YOUR WALLET!
   voice:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 7d18a1865efe4de488972d4be6826b98, type: 3}
+  - {fileID: 8300000, guid: ab71a6a94d4bd5d48823b507a8c628e3, type: 3}
+  - {fileID: 8300000, guid: 64d8b5e231237ed49926491e108ccdc7, type: 3}
+  - {fileID: 8300000, guid: 656befb3316300548986512955827de8, type: 3}
+  - {fileID: 8300000, guid: 72bf5a433f071ef4e9a2c44ad7d4cb51, type: 3}
+  - {fileID: 8300000, guid: 1d162b4aa85a18d4696146d75ef61337, type: 3}
+  - {fileID: 8300000, guid: 47a6c2832b96272499f4b8db68f3b35c, type: 3}
+  - {fileID: 8300000, guid: 79b9d811b7c8a6e4693acf7bba93abed, type: 3}
+  - {fileID: 8300000, guid: d70da7854f456b1498e4812540cf4243, type: 3}

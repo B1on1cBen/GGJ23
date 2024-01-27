@@ -16,8 +16,8 @@ MonoBehaviour:
   - Please help me!
   - I am the princess!
   - I-- Need saving!
-  - This guy!
-  - He's too strong! I-iiiiiiineeeeeeed help!
+  - This guy! He's too strong!
+  - I-iiiiiiineeeeeeed help!
   voice:
   - {fileID: 8300000, guid: 2fba9a4e305b4a64d837fc1c82dcb2ad, type: 3}
   - {fileID: 8300000, guid: 6e034be2a77579d4596cc6fbb636005e, type: 3}

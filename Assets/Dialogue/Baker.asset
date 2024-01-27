@@ -20,8 +20,8 @@ MonoBehaviour:
   - An egg, some flour, and some milk.
   - 'I''ll repeat that:'
   - Some eggs, a flower, and THE MILKS.
-  - Once you those three things, come back to me, we'll bake a delicious cake, aight?
-    Peace.
+  - Once you get those three things, come back to me, we'll bake a delicious cake,
+    aight? Peace.
   voice:
   - {fileID: 8300000, guid: 2d848eae247518948af5b4e59dd91c9f, type: 3}
   - {fileID: 8300000, guid: e35a236ec8112c4449c331af8152c1aa, type: 3}
