@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: OldMan
+  m_EditorClassIdentifier: 
+  text:
+  - Oooh, my back!
+  - Oh!
+  - I don't have my walker or my cane.
+  - Good man! Would you be a dear and please help me cross this road?
+  - I only need a couple steps, just right over there.
+  - Don't ask me why I'm going that way but it's important, I swear!
+  - Please!
+  - Help me!
+  voice:
+  - {fileID: 8300000, guid: 28784b86157c3cb4d93dee89a6bae966, type: 3}
+  - {fileID: 8300000, guid: 82b45205f7692204e8e9d63063595d3f, type: 3}
+  - {fileID: 8300000, guid: d00ca1f6baa5bdf4bad3c100588e750d, type: 3}
+  - {fileID: 8300000, guid: faa94621a9f81e14bb446b55e8c36e8f, type: 3}
+  - {fileID: 8300000, guid: 1207dbfddba64064cb37304c42e1ec08, type: 3}
+  - {fileID: 8300000, guid: 0038eb842afc8d443b4d53ed8570fe75, type: 3}
+  - {fileID: 8300000, guid: 8bf05418ff8739942bf465426afb41b6, type: 3}
+  - {fileID: 8300000, guid: a13e89c14013f294fb5d25746487673d, type: 3}

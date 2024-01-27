@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: Rival
+  m_EditorClassIdentifier: 
+  text:
+  - I FINALLY FOUND YOU!
+  - You are destined to be my RIVAL in a game of YU-GI-MON THE GATHERING!
+  - This time, I'm gonna WIN.
+  - Because I have the STRONGER deck of cards!
+  - And I...
+  - just got a new...
+  - set of SLEEVES!
+  voice:
+  - {fileID: 8300000, guid: 4d451e7e8d7552b4c924158923fc3990, type: 3}
+  - {fileID: 8300000, guid: 10af9ca0204fd8a44987c35caeebedff, type: 3}
+  - {fileID: 8300000, guid: 643875b3c301aeb48861349bde6e353e, type: 3}
+  - {fileID: 8300000, guid: 9262b7e815625ea458ef8d31b87563ba, type: 3}
+  - {fileID: 8300000, guid: d4a91af7a0d45cc4692b18c5f93c23f9, type: 3}
+  - {fileID: 8300000, guid: 27f2e507ca6fd094f9d8d2f3e9603e71, type: 3}
+  - {fileID: 8300000, guid: f92a794ce5feb3f4d8f98d3edbbc9fc6, type: 3}

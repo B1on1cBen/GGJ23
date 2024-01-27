@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: TollMan
+  m_EditorClassIdentifier: 
+  text:
+  - Hey hey hey, hold up there bub.
+  - 'You can''t come through here without paying the toll! '
+  - You see that sign up there? It says five dollars! You gotta pay me FIVE. DOLLARS.
+  - You can't get past this until YOU pay ME, and then I let YOU through. Capeesh?
+    You understand?
+  - 'Y-you''re lookin at me like you don''t know what I''m sayin, but I''m sayin
+    it in plain English:'
+  - FIVE. DOLLARS.
+  - You can't get through here without FIVE. DOLLARS.
+  voice:
+  - {fileID: 8300000, guid: d38f263832b9b8f4abee3da08ac3e9a5, type: 3}
+  - {fileID: 8300000, guid: 3f5860aca9b72ec46ac6f2c50f3a5970, type: 3}
+  - {fileID: 8300000, guid: a4e65a25720d9d74283b04fa2d914151, type: 3}
+  - {fileID: 8300000, guid: cac4bf06a8677aa4e9187e4271a51ec9, type: 3}
+  - {fileID: 8300000, guid: 8295ba68d605ff24da835e092e580e5c, type: 3}
+  - {fileID: 8300000, guid: 0f8f8f18d4a387d4ca1e879a9c199d38, type: 3}
+  - {fileID: 8300000, guid: 9ec814347d4a5ef49ac4da4f7155f87b, type: 3}

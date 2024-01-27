@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: Sage
+  m_EditorClassIdentifier: 
+  text:
+  - Hero! A great peril has fallen across the land and it's up to you to save the
+    lands of this tyranny.
+  - The snarly whiplash evil guy over there who has the princess is threatening to
+    dip her into lava, and you're the only man capable of stopping him! You must
+    hurry! Time is of the essence!
+  - You have to start your journey NOW.
+  - Here's a sword, here's a potion, here's a shield, here's my credit card, here's
+    my business card, here's my birthday invitations.
+  - You're coming to my birthday party? Great! Thanks! I'll talk to you later ;)
+  voice:
+  - {fileID: 8300000, guid: a23d87ccf0bf46b41855c2ffd2c816ba, type: 3}
+  - {fileID: 8300000, guid: f8fb1be49e8ad534180b0a2f7ff39b73, type: 3}
+  - {fileID: 8300000, guid: 5860905883561cb418b95a6660842430, type: 3}
+  - {fileID: 8300000, guid: 0ee73e1ae165f5841804c937e92af85a, type: 3}
+  - {fileID: 8300000, guid: 3bbd817abd95f424d930e9db97d03457, type: 3}

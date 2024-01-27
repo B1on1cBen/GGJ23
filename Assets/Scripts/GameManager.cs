@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     float currentTime;
     float currentCharge;
     NPC currentNPC;
+    int currentDialogueIndex;
     float lastPressTime;
     float wantedCameraZoom;
 
@@ -80,6 +81,30 @@ public class GameManager : MonoBehaviour
         {
             UpdateChargeInput();
             UpdateChargeBar();
+            UpdateDialogue();
+        }
+    }
+
+    private void UpdateDialogue()
+    {
+        if (!currentNPC)
+            return;
+
+        if (audioSource.isPlaying)
+            return;
+
+        currentDialogueIndex++;
+        if (currentDialogueIndex > currentNPC.dialogue.text.Length - 1)
+        {
+            currentNPC.Leave();
+            currentNPC = null;
+            EndDialogue();
+            return;
+        }
+        else
+        {        
+            audioSource.PlayOneShot(currentNPC.dialogue.voice[currentDialogueIndex]);
+            text.text = currentNPC.dialogue.text[currentDialogueIndex];
         }
     }
 
@@ -124,6 +149,7 @@ public class GameManager : MonoBehaviour
         // Murder NPC after slap, then go back to normal
         currentNPC.Launch(launchForce);
         npcsToDestroy.Add(currentNPC.gameObject);
+        currentNPC = null;
         Invoke("DestroyNPC", 3);
         
         EndDialogue();
@@ -162,6 +188,7 @@ public class GameManager : MonoBehaviour
     public void PlayDialogue(NPC talkingNPC)
     {
         currentCharge = 0;
+        currentDialogueIndex = 0;
         chargeBar.fillAmount = 0;
         currentNPC = talkingNPC;
         totalCharge = currentNPC.totalPresses;
@@ -173,8 +200,9 @@ public class GameManager : MonoBehaviour
 
         // Set up dialogue
         dialogueUI.SetActive(true);
-        audioSource.PlayOneShot(currentNPC.dialogue.voice);
-        text.text = currentNPC.dialogue.text;
+
+        audioSource.PlayOneShot(currentNPC.dialogue.voice[0]);
+        text.text = currentNPC.dialogue.text[0];
 
         // Move camera
         camera.npcOffset = new Vector3(

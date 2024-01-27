@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
@@ -52,5 +53,15 @@ public class NPC : MonoBehaviour
         launched = true;
         rb.AddForce(new Vector3(-1 * Mathf.Sign(transform.localScale.x), 1, 0) * force, ForceMode.Impulse);
         animator.SetTrigger("spin");
+    }
+
+    internal void Leave()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        GameManager.npcs.Remove(this);
     }
 }

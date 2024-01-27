@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: Baker
+  m_EditorClassIdentifier: 
+  text:
+  - Dude, what's goin on? I gotta quest for you.
+  - I'm bakin cakes you see, and I don't got the ingredients an you gotta go out
+    and get me three things-
+  - 'THREE THINGS:'
+  - An egg, some flour, and some milk.
+  - 'I''ll repeat that:'
+  - Some eggs, a flower, and THE MILKS.
+  - Once you those three things, come back to me, we'll bake a delicious cake, aight?
+    Peace.
+  voice:
+  - {fileID: 8300000, guid: 2d848eae247518948af5b4e59dd91c9f, type: 3}
+  - {fileID: 8300000, guid: e35a236ec8112c4449c331af8152c1aa, type: 3}
+  - {fileID: 8300000, guid: 34a76e1df37b40d4ba9d6f60fda16809, type: 3}
+  - {fileID: 8300000, guid: d728994f77b8a924bb2ead3dc0bd76d0, type: 3}
+  - {fileID: 8300000, guid: cc1a145da57484d4780105fae874270a, type: 3}
+  - {fileID: 8300000, guid: a0f1baa7bc51d9445b18991aed0348c6, type: 3}
+  - {fileID: 8300000, guid: 6aea7af91f0e49f47b31b5da2602db0d, type: 3}

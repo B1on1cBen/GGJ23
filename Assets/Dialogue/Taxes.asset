@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: Taxes
+  m_EditorClassIdentifier: 
+  text:
+  - Hey-hey-you!
+  - Uh-uh-hueh-hueh! Uh!
+  - 'TAXES! '
+  - I GOT THEM!
+  - I NEED YOU TO DO THEM! I DON'T KNOW HOW TO DO THEM!
+  - I- Huh, huh, NUMBERS!
+  - I never, knew how to READ!
+  - And this is a lot of numbers!
+  - And I-iiii uhhhh, The IRS is uh.. up my butt,
+  - and I need it help, right now.
+  - Ehe.
+  - You gotta help me- gyah-uh, I-please do my taxes please, I need them,
+  - forms, so many of them,
+  - iii-r23 uh, 99 6 444 777
+  - 'uhh '
+  - UHHHH
+  voice:
+  - {fileID: 8300000, guid: a8573e0cff7d2f948a867896b1d446bf, type: 3}
+  - {fileID: 8300000, guid: f827f8b30a6417b4baacefb1dc051f20, type: 3}
+  - {fileID: 8300000, guid: 4bc44b62800363843b9044c3d2361e49, type: 3}
+  - {fileID: 8300000, guid: 383c3eb996c3ce347bd185ca1c19e04e, type: 3}
+  - {fileID: 8300000, guid: c224e587310897b46801a47794aa40a6, type: 3}
+  - {fileID: 8300000, guid: 8db8b05aa3bf17d4ba6e86f5a9d6b019, type: 3}
+  - {fileID: 8300000, guid: 12dc12446130d1c4b928683292ec12b3, type: 3}
+  - {fileID: 8300000, guid: b4e64bbeaa88a7d479e092092bf73107, type: 3}
+  - {fileID: 8300000, guid: e73198202a7ccbf41be55a55f543e425, type: 3}
+  - {fileID: 8300000, guid: 61a0411d72c905e499e476cbe16fb6e7, type: 3}
+  - {fileID: 8300000, guid: 3da3e8e079869c1439ade1647dc86eaf, type: 3}
+  - {fileID: 8300000, guid: 3ced0e6bc95fa4441901d06c3d6d7f13, type: 3}
+  - {fileID: 8300000, guid: cefa6d45c9b9eec40b4a6f4514128c5c, type: 3}
+  - {fileID: 8300000, guid: 374869118d2ac5543a516266900816dc, type: 3}
+  - {fileID: 8300000, guid: aa158f387fef15743844dc33da22c36b, type: 3}
+  - {fileID: 8300000, guid: 9aaa295b4123b84429fd5b53b414755b, type: 3}

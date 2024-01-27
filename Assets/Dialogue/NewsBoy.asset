@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: NewsBoy
+  m_EditorClassIdentifier: 
+  text:
+  - Extra Extra! Read all about it!
+  - Ronald Regan back from the dead terrorizing the living!
+  - Read all about it!
+  - We got 16 quarters for 9 pents!
+  - This paper is only 5 cents!
+  - Don't you want one? I got like a whole stack of em ready for youuuuu!
+  voice:
+  - {fileID: 8300000, guid: f8651b06c5d290a419d1120f3839c44f, type: 3}
+  - {fileID: 8300000, guid: 128bb4b4f1d75064b8efaecb79e7fd6d, type: 3}
+  - {fileID: 8300000, guid: 39a9a384a90913449a6a060b5485077e, type: 3}
+  - {fileID: 8300000, guid: 40c16c466aff11b4881cccb49fa06a7b, type: 3}
+  - {fileID: 8300000, guid: 4f50ce9413e808249aa7c44d91ec09a7, type: 3}
+  - {fileID: 8300000, guid: 0ee353452680216428eb3c9d8884acbc, type: 3}

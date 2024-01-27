@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: PrincessLinesB
+  m_EditorClassIdentifier: 
+  text:
+  - Please help me!
+  - I am the princess!
+  - I-- Need saving!
+  - This guy!
+  - He's too strong! I-iiiiiiineeeeeeed help!
+  voice:
+  - {fileID: 8300000, guid: 2fba9a4e305b4a64d837fc1c82dcb2ad, type: 3}
+  - {fileID: 8300000, guid: 6e034be2a77579d4596cc6fbb636005e, type: 3}
+  - {fileID: 8300000, guid: 8bda0295f48a7304a91f80ae97976d71, type: 3}
+  - {fileID: 8300000, guid: 8a48d1998213d87419ee5c3168406be3, type: 3}
+  - {fileID: 8300000, guid: fadd106b746947241bcc764767b92800, type: 3}

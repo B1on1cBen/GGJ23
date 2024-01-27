@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: Lasagna
+  m_EditorClassIdentifier: 
+  text:
+  - I HATE LASAGNA!
+  - I HATE IT!
+  - I HATE IT SO MUCH!
+  - I hate lasagna with a burning passion, and you know what?
+  - I hate burning on my food, and lasagna burns so often.
+  - You know when you put it in the oven and you get that black crusty stuff all
+    over your lasagna?
+  - It's the worst!
+  - You get it?
+  - Why do you make it- it's just pasta!
+  - You cook it in a pot, why do people put it in a pan and put it in the oven?
+  - I-iit just doesn't make any sense.
+  - You could just loop it with your fork if it was spaghetti but it's not because
+    it's a sheet because it's lasagna!
+  - It's the worst!
+  voice:
+  - {fileID: 8300000, guid: 127ac6bd3f3b98f4f8d017adc7c7b204, type: 3}
+  - {fileID: 8300000, guid: 431a985cc457b7043824e82119c33dd7, type: 3}
+  - {fileID: 8300000, guid: 65f879d57aa59824e97ef6976a666014, type: 3}
+  - {fileID: 8300000, guid: 49f47a0ca4312e649a7d20d802e9033e, type: 3}
+  - {fileID: 8300000, guid: 2a70618ff164c9c48b429401774000f1, type: 3}
+  - {fileID: 8300000, guid: d7ae687f8914beb4dacedc43a62bb2b0, type: 3}
+  - {fileID: 8300000, guid: 3177a80ecebe9c042bb95f169cd4ba60, type: 3}
+  - {fileID: 8300000, guid: 77e1ff65241007d438fa92b15a51a783, type: 3}
+  - {fileID: 8300000, guid: c015f599ba5c57345b3be90a4371e388, type: 3}
+  - {fileID: 8300000, guid: 315f863c592e64a458b71c66e204063b, type: 3}
+  - {fileID: 8300000, guid: 57f10c5743bf6e34ab3f43fb1f07bc16, type: 3}
+  - {fileID: 8300000, guid: 7933be17acf46f5468b38e3bd97c0875, type: 3}
+  - {fileID: 8300000, guid: b25d359d3a7e37d49a753f1636367450, type: 3}
