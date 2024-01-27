@@ -3306,13 +3306,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   launchForce: 20
-  totalTime: 999
+  totalTime: 10
   chargeAmountPerPress: 1
   chargeDecay: 0
   totalCharge: 10
   chargeBarSmoothing: 5
   cameraZoomSmoothing: 3
   cameraZoomMax: 1.5
+  cameraZoomSpeed: 2
   slider: {fileID: 1610782937}
   chargeBar: {fileID: 1510296699}
   npcTouchPlayerMask:
@@ -3322,6 +3323,7 @@ MonoBehaviour:
   dialogueUI: {fileID: 1288422787}
   text: {fileID: 1313814069}
   camera: {fileID: 1319765460}
+  state: 0
 --- !u!4 &1934169998
 Transform:
   m_ObjectHideFlags: 0

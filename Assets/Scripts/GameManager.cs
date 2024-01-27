@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     float currentCharge;
     NPC currentNPC;
     float lastPressTime;
+    float wantedCameraZoom;
 
     List<GameObject> npcsToDestroy = new List<GameObject>();
 
@@ -53,10 +54,13 @@ public class GameManager : MonoBehaviour
         cameraZoomMin = Camera.main.orthographicSize;
 
         state = GameState.Game;
+        wantedCameraZoom = cameraZoomMin;
     }
 
     void Update()
     {
+        UpdateCameraZoom();
+
         if (state == GameState.Intro)
         {
             // Stop movement
@@ -77,6 +81,14 @@ public class GameManager : MonoBehaviour
             UpdateChargeInput();
             UpdateChargeBar();
         }
+    }
+
+    private void UpdateCameraZoom()
+    {
+        Camera.main.orthographicSize = Mathf.Lerp(
+            Camera.main.orthographicSize, 
+            wantedCameraZoom,
+            cameraZoomSmoothing * Time.deltaTime);
     }
 
     private bool CanPress => Time.time >= lastPressTime;
@@ -101,10 +113,7 @@ public class GameManager : MonoBehaviour
     private void UpdateChargeBar()
     {
         chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
-        Camera.main.orthographicSize = Mathf.Lerp(
-            cameraZoomMin, 
-            cameraZoomMax,
-            chargeBar.fillAmount);
+        wantedCameraZoom = Mathf.Lerp(cameraZoomMin, cameraZoomMax, chargeBar.fillAmount);
     }
 
     private void Slap()
@@ -180,6 +189,7 @@ public class GameManager : MonoBehaviour
         text.text = "";
         dialogueUI.SetActive(false);
         camera.npcOffset = Vector3.zero;
+        wantedCameraZoom = cameraZoomMin;
 
         // Start movement
         player.canMove = true;
