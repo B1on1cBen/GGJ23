@@ -1,32 +1,32 @@
-using System;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class NPC : MonoBehaviour
 {
+    static Transform player;
+
     public float moveSpeed;
     public bool canMove;
-    public float moveThreshold = 0.02f;
     Vector3 moveInput;
 
     Rigidbody rb;
 
     void Awake()
     {
+        if (!player)
+            player = GameObject.Find("Player").transform;
+
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        moveInput = new Vector3(
-            Input.GetAxis("Horizontal"),
-            0,
-            Input.GetAxis("Vertical")
-        );
+        moveInput = (player.position - transform.position).normalized;
+        moveInput.y = 0;
     }
 
     void FixedUpdate()
     {
-        if (canMove && moveInput.magnitude > moveThreshold)
+        if (canMove)
             Move();
     }
 
