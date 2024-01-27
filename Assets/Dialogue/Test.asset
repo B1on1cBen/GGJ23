@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: Test
+  m_EditorClassIdentifier: 
+  text: Hello! Oh my god it's me! This is, um, some test dialouge, um... Yeah! Such
+    good test dialogue... Wouldn't it be great if this ends up in the game? That'd
+    be funny right? Yeah, HAHA HAHA!
+  voice: {fileID: 8300000, guid: f9997eed02cbbad4baa3a3791a87343c, type: 3}
