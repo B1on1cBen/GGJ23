@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     public static List<NPC> npcs = new List<NPC>();
 
+    public float launchForce;
     public float totalTime;
     public float chargeAmountPerPress;
     public float chargeDecay;
@@ -35,10 +36,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] new PlayerCamera camera;
 
-    GameState state;
+    public GameState state;
     AudioSource audioSource;
     float currentTime;
     float currentCharge;
+    NPC currentNPC;
+    float lastPressTime;
+
+    List<GameObject> npcsToDestroy = new List<GameObject>();
 
     void Awake()
     {
@@ -74,16 +79,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool CanPress => Time.time >= lastPressTime;
+
     private void UpdateChargeInput()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !currentNPC.launched && CanPress)
         {
-            currentCharge += chargeAmountPerPress * Time.deltaTime;
+            lastPressTime = Time.time + currentNPC.timeBetweenPresses;
+            currentCharge += chargeAmountPerPress;
             if (currentCharge >= totalCharge)
             {
                 chargeBar.fillAmount = 1;
                 Slap();
-                state = GameState.Slap;
             }
         }
 
@@ -102,9 +109,21 @@ public class GameManager : MonoBehaviour
 
     private void Slap()
     {
+        state = GameState.Slap;
         Debug.Log("SLAP!!!");
 
         // Murder NPC after slap, then go back to normal
+        currentNPC.Launch(launchForce);
+        npcsToDestroy.Add(currentNPC.gameObject);
+        Invoke("DestroyNPC", 3);
+        
+        EndDialogue();
+    }
+
+    private void DestroyNPC()
+    {
+        foreach(var npc in npcsToDestroy)
+            Destroy(npc);
     }
 
     private void UpdateTimer()
@@ -131,8 +150,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void PlayDialogue(NPC currentNPC)
+    public void PlayDialogue(NPC talkingNPC)
     {
+        currentCharge = 0;
+        chargeBar.fillAmount = 0;
+        currentNPC = talkingNPC;
+        totalCharge = currentNPC.totalPresses;
+
         // Stop movement
         player.canMove = false;
         foreach(NPC npc in npcs)
@@ -148,6 +172,21 @@ public class GameManager : MonoBehaviour
             (currentNPC.transform.position.x - player.transform.position.x) * 0.5f - camera.offset.x,
             0, 
             2);
+    }
+
+    private void EndDialogue()
+    {
+        audioSource.Stop();
+        text.text = "";
+        dialogueUI.SetActive(false);
+        camera.npcOffset = Vector3.zero;
+
+        // Start movement
+        player.canMove = true;
+        foreach(NPC npc in npcs)
+            npc.canMove = true;
+
+        state = GameState.Game;
     }
 
     private void Lose()
