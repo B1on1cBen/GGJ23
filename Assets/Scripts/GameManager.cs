@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,6 +22,9 @@ public class GameManager : MonoBehaviour
     public float chargeDecay;
     public float totalCharge;
     public float chargeBarSmoothing;
+    public float cameraZoomSmoothing;
+    public float cameraZoomMax;
+    float cameraZoomMin;
 
     [Space]
     [SerializeField] Slider slider;
@@ -43,6 +45,7 @@ public class GameManager : MonoBehaviour
         currentTime = totalTime;
         audioSource = GetComponent<AudioSource>();
         dialogueUI.SetActive(false);
+        cameraZoomMin = Camera.main.orthographicSize;
 
         state = GameState.Game;
     }
@@ -91,6 +94,10 @@ public class GameManager : MonoBehaviour
     private void UpdateChargeBar()
     {
         chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
+        Camera.main.orthographicSize = Mathf.Lerp(
+            cameraZoomMin, 
+            cameraZoomMax,
+            chargeBar.fillAmount);
     }
 
     private void Slap()
