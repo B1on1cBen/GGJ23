@@ -3390,8 +3390,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 89dfa4d65ddda5d41a7d5407e84d041b, type: 2}
+  m_sharedMaterial: {fileID: 2639502504660300051, guid: 89dfa4d65ddda5d41a7d5407e84d041b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5241,6 +5241,7 @@ MonoBehaviour:
   chargeBarSmoothing: 5
   cameraZoomSmoothing: 3
   cameraZoomMax: 1.5
+  slapSounds: []
   slider: {fileID: 1610782937}
   chargeBar: {fileID: 1510296699}
   npcTouchPlayerMask:
