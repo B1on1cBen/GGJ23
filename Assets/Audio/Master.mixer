@@ -14,6 +14,48 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!244 &-6871793156730764011
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: d5db541ec9b4e534cb937935e6ad9849
+  m_EffectName: SFX Reverb
+  m_MixLevel: 17a03c83b9ae9734c8e3470d06c1d123
+  m_Parameters:
+  - m_ParameterName: Dry Level
+    m_GUID: 2e30ea87550eb4d4dad3548ee3ed172e
+  - m_ParameterName: Room
+    m_GUID: 9c009c854dfb2044399ba136c2909584
+  - m_ParameterName: Room HF
+    m_GUID: 074bf1132dec14f4a99717af97f6ef7b
+  - m_ParameterName: Decay Time
+    m_GUID: cb5d305d39272774987082dfe1438b8a
+  - m_ParameterName: Decay HF Ratio
+    m_GUID: 9fb286770657ece41a3bb7404a66399b
+  - m_ParameterName: Reflections
+    m_GUID: 8779368a5854a3c4b83c3b5c6a7cfc69
+  - m_ParameterName: Reflect Delay
+    m_GUID: 8dbd0cb1f73bc89448753347a2e7090a
+  - m_ParameterName: Reverb
+    m_GUID: 1481235c6d6ee304aa1ca79d802c82a9
+  - m_ParameterName: Reverb Delay
+    m_GUID: 0df36e34cff03b0479f5d029eee135cc
+  - m_ParameterName: Diffusion
+    m_GUID: adee4ef779b2eb446ad32ce7ccd1e9ab
+  - m_ParameterName: Density
+    m_GUID: d371610eb5efc8d46be6c1af742f33cb
+  - m_ParameterName: HF Reference
+    m_GUID: d081635f2791c0c4699dca120958a1a1
+  - m_ParameterName: Room LF
+    m_GUID: 16c8b1ff6c6242e4d93e7d4c90832839
+  - m_ParameterName: LF Reference
+    m_GUID: 0be6bf1a1b6bacc438772758f14e574c
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-5405733506267345317
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -190,6 +232,7 @@ AudioMixerSnapshotController:
     f32106904899b4d4ab52d975363e3414: 4.165108
     7f429c47943f8044bb53f3c764bf2652: 0
     dd35709a59c975c4eb406aeaede03f01: 0
+    1481235c6d6ee304aa1ca79d802c82a9: 1685
   m_TransitionOverrides: {}
 --- !u!243 &4508099609739639271
 AudioMixerGroupController:
@@ -206,6 +249,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -6998313954383732897}
+  - {fileID: -6871793156730764011}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

@@ -29,33 +29,32 @@ public class TitleScreen : MonoBehaviour
     public void Play() => SceneManager.LoadScene(1);
     public void Quit() => Application.Quit();
 
-    private void FixedUpdate()
+    private void Update()
     {
+        chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
         UpdateCharge();
     }
 
     private bool CanPress => Time.time >= lastPressTime;
 
     private void UpdateCharge()
-    {
-        if (!Input.GetButtonDown("Jump"))
-            return;
-        
+    {        
         if (!started)
         {
             started = true;
             prompt.SetActive(false);
         }
 
-        if (!CanPress)
-            return;
+        if (CanPress && Input.GetButtonDown("Jump"))
+        {
+            lastPressTime = Time.time + .25f;
+            currentCharge += chargeAmountPerPress;    
+            currentCharge = Mathf.Clamp(currentCharge, 0, totalCharge);
+            chargeAudioSource.PlayOneShot(chargeSound);
+        }
 
-        lastPressTime = Time.time + .25f;
-        currentCharge += chargeAmountPerPress;
-
+        
         chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMin, chargeBar.fillAmount);
-        chargeAudioSource.PlayOneShot(chargeSound);
-        chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
 
         if (currentCharge >= totalCharge)
         {
@@ -64,13 +63,11 @@ public class TitleScreen : MonoBehaviour
             //chargeAudioSource.PlayOneShot(chargeSound);
             Slap();
         }
-
-        currentCharge = Mathf.Clamp(currentCharge, 0, totalCharge);
     }
 
     private void Slap()
     {
-        if (title.activeInHierarchy)
+        if (!title.activeInHierarchy)
             return;
 
         title.SetActive(false);

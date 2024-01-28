@@ -51,7 +51,7 @@ public class NPC : MonoBehaviour
     private void Move()
     {
         rb.MovePosition(transform.position + moveInput * moveSpeed * Time.fixedDeltaTime);
-        transform.localScale = new Vector3(Mathf.Sign(moveInput.x),1,1);
+        transform.localScale = new Vector3(-Mathf.Sign(moveInput.x),1,1);
     }
 
     public void Launch(float force)
