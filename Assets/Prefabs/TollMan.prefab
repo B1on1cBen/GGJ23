@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3798477090639073315}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 5.38, z: -0.23}
+  m_LocalPosition: {x: -0.07, y: 4.64, z: -0.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -107621701, guid: cec62bc0e1de2e14694386bf0f76dda6, type: 3}
+  m_Sprite: {fileID: -570236164, guid: e4688c489ea91fb48b41373dfbf0299d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 4564543453448589609}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.95, y: -1.36, z: 0}
+  m_LocalPosition: {x: 0, y: -1.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1499082377, guid: cec62bc0e1de2e14694386bf0f76dda6, type: 3}
+  m_Sprite: {fileID: 430294907, guid: e4688c489ea91fb48b41373dfbf0299d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 8137355720729082509}
   - component: {fileID: 4256321663460569009}
   m_Layer: 6
-  m_Name: Baker
+  m_Name: TollMan
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghost: 0
-  dialogue: {fileID: 11400000, guid: b7edf8072ce2fcd4f8e1e972211c9627, type: 2}
+  dialogue: {fileID: 11400000, guid: d533302286ec31a4995cbe5ce470f937, type: 2}
   timeBetweenPresses: 0.25
   totalPresses: 7
   moveSpeed: 2
