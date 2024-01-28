@@ -31,13 +31,12 @@ public class TitleScreen : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateChargeInput();
-        UpdateChargeBar();
+        UpdateCharge();
     }
 
     private bool CanPress => Time.time >= lastPressTime;
 
-    private void UpdateChargeInput()
+    private void UpdateCharge()
     {
         if (!Input.GetButtonDown("Jump"))
             return;
@@ -51,19 +50,18 @@ public class TitleScreen : MonoBehaviour
         if (!CanPress)
             return;
 
-        chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMin, chargeBar.fillAmount);
-        chargeAudioSource.PlayOneShot(chargeSound);
-        
-        //TitleAnimator.SetFloat("ChargeTime", chargeBar.fillAmount);
-
         lastPressTime = Time.time + .25f;
         currentCharge += chargeAmountPerPress;
+
+        chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMin, chargeBar.fillAmount);
+        chargeAudioSource.PlayOneShot(chargeSound);
+        chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
+
         if (currentCharge >= totalCharge)
         {
             chargeBar.fillAmount = 1;
             chargeAudioSource.pitch = chargePitchMax;
-            chargeAudioSource.PlayOneShot(chargeSound);
-            //TitleAnimator.SetFloat("ChargeTime", chargeBar.fillAmount);
+            //chargeAudioSource.PlayOneShot(chargeSound);
             Slap();
         }
 
@@ -78,10 +76,5 @@ public class TitleScreen : MonoBehaviour
         title.SetActive(false);
         slapAudioSource.PlayOneShot(slapSound);
         Invoke("Play", 2);
-    }
-
-    private void UpdateChargeBar()
-    {
-        chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
     }
 }
