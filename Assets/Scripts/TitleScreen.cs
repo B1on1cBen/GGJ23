@@ -52,7 +52,6 @@ public class TitleScreen : MonoBehaviour
             currentCharge = Mathf.Clamp(currentCharge, 0, totalCharge);
             chargeAudioSource.PlayOneShot(chargeSound);
         }
-
         
         chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMin, chargeBar.fillAmount);
 
