@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,322 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: The Guy 3_0
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 2651
+        width: 497
+        height: 613
+      alignment: 9
+      pivot: {x: 0.60516065, y: 0.22096479}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3209e62421c85b944ac7fd1138688656
+      internalID: 2123881714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arm_Front
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 2685
+        width: 515
+        height: 563
+      alignment: 9
+      pivot: {x: 0.79270685, y: 0.7926587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed9463019be8e434b889b34fc09f968a
+      internalID: 563993492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arm_Back
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 2688
+        width: 507
+        height: 539
+      alignment: 9
+      pivot: {x: 0.23033343, y: 0.23333548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0376428d2c99394d97d2698c13da756
+      internalID: -924654394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slap
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 1590
+        width: 1795
+        height: 1674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f528566e3e83704e98e878d320ef0d2
+      internalID: 936111936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slap_After
+      rect:
+        serializedVersion: 2
+        x: 4099
+        y: 1606
+        width: 1176
+        height: 1658
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a30afa5399bd1754fb72654496cc8e8f
+      internalID: 121165945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1664
+        width: 674
+        height: 931
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1873258465b5df4f85e14e719401457
+      internalID: 1081479008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leg_Back
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 2109
+        width: 279
+        height: 486
+      alignment: 9
+      pivot: {x: 0.30077118, y: 0.8367634}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 608a9c39aeb932b46902ae43cb6b9463
+      internalID: -47646106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Leg_Front
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 2106
+        width: 252
+        height: 489
+      alignment: 9
+      pivot: {x: 0.31618777, y: 0.8346973}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9219226406faf7408479bc2fe3ab3ac
+      internalID: 175352956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Face_2
+      rect:
+        serializedVersion: 2
+        x: 1378
+        y: 1788
+        width: 194
+        height: 210
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d6332e4fc45d914495580f6410ccb61
+      internalID: 946332234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Face_3
+      rect:
+        serializedVersion: 2
+        x: 1632
+        y: 1785
+        width: 206
+        height: 223
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 478e522d837cebe4e955ac3e80e4c7b9
+      internalID: 1858434562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Face_1
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 1780
+        width: 189
+        height: 223
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1f259dec8fbd3408166720826e0560
+      internalID: 432956157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Face_0
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 1772
+        width: 199
+        height: 243
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 563a2c254eacc7444b2ab1bd08f05a15
+      internalID: -2010194639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 1162
+        width: 384
+        height: 544
+      alignment: 9
+      pivot: {x: 0.47525325, y: 0.27291355}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8e17afa63388145a9d85d752578a7c
+      internalID: -946234722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hair
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 1251
+        width: 497
+        height: 455
+      alignment: 9
+      pivot: {x: 0.54780024, y: 0.7819483}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90065f0596f67c44b86f74da20fafe67
+      internalID: 581359545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arm_Smear
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 80
+        width: 1466
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b113a35c0274b4c88ebc3a2cbc1a7d
+      internalID: 419330078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +434,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Arm_Back: -924654394
+      Arm_Front: 563993492
+      Arm_Smear: 419330078
+      Body: 1081479008
+      Face_0: -2010194639
+      Face_1: 432956157
+      Face_2: 946332234
+      Face_3: 1858434562
+      Hair: 581359545
+      Head: -946234722
+      Leg_Back: -47646106
+      Leg_Front: 175352956
+      Slap: 936111936
+      Slap_After: 121165945
+      The Guy 3_0: 2123881714
+      The Guy 3_10: -1481580130
+      The Guy 3_11: 1615690988
+      The Guy 3_12: -1826878685
+      The Guy 3_15: 623518470
+      The Guy 3_18: 1792634581
+      The Guy 3_8: -1603747768
+      The Guy 3_9: -165829190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

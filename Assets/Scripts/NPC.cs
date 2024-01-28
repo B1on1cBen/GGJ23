@@ -5,6 +5,7 @@ public class NPC : MonoBehaviour
 {
     static Transform player;
 
+    public bool ghost;
     public Dialogue dialogue;
     public float timeBetweenPresses;
     public float totalPresses;
@@ -25,20 +26,22 @@ public class NPC : MonoBehaviour
             player = GameObject.Find("Player").transform;
 
         GameManager.npcs.Add(this);
-
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
+        if (ghost)
+            return;
+            
         moveInput = (player.position - transform.position).normalized;
         moveInput.y = 0;
     }
 
     void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && !ghost)
             Move();
     }
 

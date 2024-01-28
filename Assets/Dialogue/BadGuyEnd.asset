@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdccdb29aed854fb62d9658172092e, type: 3}
+  m_Name: BadGuyEnd
+  m_EditorClassIdentifier: 
+  text:
+  - I, the magnificent Finkleburg, have you right where I want you!
+  - The princess is over lava, and if you take one more step I'm gonna dunk her in
+    there and she'll be dead forever!
+  - You can't stop me, I'm INVINCIBLE!
+  - My shirt is enchanted with +3 stamina, making YOU...
+  - not able to touch me even!
+  - Don't even come closer, don't even THINK about it!
+  - I'm unstoppable!
+  voice:
+  - {fileID: 8300000, guid: 9ef16576b1ea5a14c9e2366022652505, type: 3}
+  - {fileID: 8300000, guid: 7a4b1461af010cc45a7349e6b1e822d7, type: 3}
+  - {fileID: 8300000, guid: 61559f2f138a3764a90e83f421f0d9fd, type: 3}
+  - {fileID: 8300000, guid: 92e14b9259078ac40b37fcdabb0b22bf, type: 3}
+  - {fileID: 8300000, guid: ce4ca64db24703e47b6480a61657d2dd, type: 3}
+  - {fileID: 8300000, guid: b0fbce63335e2b741b18a8ae1f8f40b2, type: 3}
+  - {fileID: 8300000, guid: 30c8a7a4907bf20419e95bff093577c9, type: 3}
