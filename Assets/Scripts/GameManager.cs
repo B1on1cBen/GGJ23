@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
         Lose,
         Slap,
         Anger,
-        FirstSlap
+        FirstSlap,
+        HitStun,
+        SlapFollowThrough
     }
 
     public static List<NPC> npcs = new List<NPC>();
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
     public float chargeBarSmoothing;
     public float cameraZoomSmoothing;
     public float cameraZoomMax;
+    public float hitStunTime;
     public bool canSlap;
     float cameraZoomMin;
     public AudioClip[] slapSounds;
@@ -60,7 +63,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] new PlayerCamera camera;
     [SerializeField] Animator playerAnimator;
-
     public GameState state;
     float currentTime;
     float currentCharge;
@@ -69,11 +71,14 @@ public class GameManager : MonoBehaviour
     float lastPressTime;
     float wantedCameraZoom;
     bool charging;
+    private float slapFollowThroughEnd;
 
     float muffle;
     float angerStartTime;
     private float angerEndTime;
     List<GameObject> npcsToDestroy = new List<GameObject>();
+    public float endHitStunTime;
+    public float slapFollowThroughTime;
 
     void Awake()
     {
@@ -143,6 +148,21 @@ public class GameManager : MonoBehaviour
             UpdateChargeBar();
             UpdateChargeInput();
         }
+        else if (state == GameState.HitStun)
+        {
+            if (Time.time >= endHitStunTime)
+            {
+                SlapLaunch();
+            }
+        }
+        else if (state == GameState.SlapFollowThrough)
+        {
+            if (Time.time >= slapFollowThroughEnd)
+            {
+                camera.shake.enabled = false;
+                EndDialogue();
+            }
+        }
     }
 
     public void EndAnger()
@@ -185,6 +205,9 @@ public class GameManager : MonoBehaviour
 
     private void UpdateChargeInput()
     {
+        if (!canSlap)
+            return;
+
         if (!Input.GetButtonDown("Jump"))
             return;
 
@@ -229,15 +252,37 @@ public class GameManager : MonoBehaviour
     private void Slap()
     {
         state = GameState.Slap;
+        currentNPC.launched = true;
         Debug.Log("SLAP!!!");
+        playerAnimator.SetTrigger("Slap");
 
+        NPCAudioSource.Stop();
+        text.text = "";
+        dialogueUI.SetActive(false);
+
+        endHitStunTime = Time.time + hitStunTime;
+    }
+
+    public void SlapHitStun()
+    {
+        state = GameState.HitStun;
+        Debug.Log("Hitstun!");
+        currentNPC.shake.shakeDuration = hitStunTime;
+    }
+
+    public void SlapLaunch()
+    {
         // Murder NPC after slap, then go back to normal
+        currentNPC.shake.shakeDuration = 0;
         currentNPC.Launch(launchForce);
         npcsToDestroy.Add(currentNPC.gameObject);
         currentNPC = null;
         Invoke("DestroyNPC", 3);
-        
-        EndDialogue();
+
+        camera.shake.enabled = true;
+        camera.shake.shakeDuration = slapFollowThroughTime;
+        slapFollowThroughEnd = Time.time + slapFollowThroughTime;
+        state = GameState.SlapFollowThrough;
     }
 
     public void ExitIntro()
@@ -283,7 +328,10 @@ public class GameManager : MonoBehaviour
 
     private void CheckForNPCTouches()
     {
-        var colliders = Physics.OverlapSphere(player.transform.position, 2, npcTouchPlayerMask);
+        if (currentNPC)
+            return;
+
+        var colliders = Physics.OverlapSphere(player.transform.position, 1.1f, npcTouchPlayerMask);
         if (colliders.Length > 0)
         {
             if (inIntro)

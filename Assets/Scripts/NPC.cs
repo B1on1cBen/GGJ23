@@ -19,12 +19,15 @@ public class NPC : MonoBehaviour
     Animator animator;
 
     public bool launched;
+    public CameraShake shake;
 
     void Awake()
     {
         if (!player)
             player = GameObject.Find("Player").transform;
 
+        shake = gameObject.AddComponent<CameraShake>();
+        shake.enabled = false;
         GameManager.npcs.Add(this);
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -34,7 +37,7 @@ public class NPC : MonoBehaviour
     {
         if (ghost)
             return;
-            
+
         moveInput = (player.position - transform.position).normalized;
         moveInput.y = 0;
     }

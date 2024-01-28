@@ -7,12 +7,14 @@ public class Player : MonoBehaviour
     public bool cutscene;
     public float moveThreshold = 0.02f;
     [SerializeField] public Vector3 moveInput;
+    //GameManager gameManager;
 
     public Animator animator;
     Rigidbody rb;
 
     void Awake()
     {
+        //gameManager = GameObject.FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -30,7 +32,7 @@ public class Player : MonoBehaviour
     {
         if (cutscene)
             return;
-            
+
         if (canMove && moveInput.magnitude > moveThreshold){
             Move();
             animator.SetBool("Moving", true);

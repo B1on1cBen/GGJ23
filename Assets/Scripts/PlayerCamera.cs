@@ -10,11 +10,14 @@ public class PlayerCamera : MonoBehaviour
     Transform player;
 
     Vector3 wantedPosition;
+    public CameraShake shake;
 
     void Awake()
     {
         player = GameObject.Find("Player").transform;
         wantedPosition = evilDude.position - Vector3.up + offset;
+        shake = gameObject.AddComponent<CameraShake>();
+        shake.enabled = false;
     }
 
     void FixedUpdate()

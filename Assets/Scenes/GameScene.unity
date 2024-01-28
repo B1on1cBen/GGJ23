@@ -268,6 +268,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &104988840
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -522,6 +523,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &328239299
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -701,6 +703,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &390287731
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -877,6 +880,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 0
   launched: 0
+  shake: {fileID: 0}
 --- !u!4 &407401344
 Transform:
   m_ObjectHideFlags: 0
@@ -1237,6 +1241,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &540158930
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1668,6 +1673,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &628992898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1847,6 +1853,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &693976094
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2278,6 +2285,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &918621310
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2810,6 +2818,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 0
   launched: 0
+  shake: {fileID: 0}
 --- !u!4 &1023374031
 Transform:
   m_ObjectHideFlags: 0
@@ -2886,6 +2895,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &1037869341
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3233,6 +3243,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &1089033436
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3717,6 +3728,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &1212865710
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4291,6 +4303,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 0
   launched: 0
+  shake: {fileID: 0}
 --- !u!4 &1316976174
 Transform:
   m_ObjectHideFlags: 0
@@ -4416,6 +4429,7 @@ MonoBehaviour:
   evilDude: {fileID: 1212865713}
   npcOffset: {x: 0, y: 0, z: 0}
   smoothingSpeed: 5
+  shake: {fileID: 0}
 --- !u!1 &1320732522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4510,6 +4524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1409847624}
   - component: {fileID: 1409847625}
+  - component: {fileID: 1409847626}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -4555,6 +4570,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1409847626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409847623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee9ec9e3f5ddab4197c22368245223b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1415776024
 GameObject:
   m_ObjectHideFlags: 0
@@ -4723,6 +4750,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &1437205806
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4923,6 +4951,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &1445428586
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6170,6 +6199,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &1899822266
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6417,6 +6447,7 @@ MonoBehaviour:
   chargeBarSmoothing: 5
   cameraZoomSmoothing: 3
   cameraZoomMax: 1.5
+  hitStunTime: 0
   canSlap: 0
   slapSounds: []
   chargeAudioSource: {fileID: 1934170000}
@@ -6447,6 +6478,8 @@ MonoBehaviour:
   camera: {fileID: 1319765460}
   playerAnimator: {fileID: 1409847625}
   state: 0
+  endHitStunTime: 0.75
+  slapFollowThroughTime: 0.75
 --- !u!4 &1934169998
 Transform:
   m_ObjectHideFlags: 0
@@ -7136,6 +7169,7 @@ MonoBehaviour:
   moveSpeed: 2
   canMove: 1
   launched: 0
+  shake: {fileID: 0}
 --- !u!54 &2034208981
 Rigidbody:
   m_ObjectHideFlags: 0
