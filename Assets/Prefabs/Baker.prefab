@@ -15,12 +15,12 @@ GameObject:
   - component: {fileID: 2041868187804715249}
   - component: {fileID: 6317111733556354509}
   m_Layer: 6
-  m_Name: NPC (3)
+  m_Name: Baker
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1609082638899654879
 Transform:
   m_ObjectHideFlags: 0
