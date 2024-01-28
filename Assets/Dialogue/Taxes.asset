@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Taxes
   m_EditorClassIdentifier: 
   text:
-  - Hey-hey-you!
-  - Uh-uh-hueh-hueh! Uh!
   - 'TAXES! '
   - I GOT THEM!
   - I NEED YOU TO DO THEM! I DON'T KNOW HOW TO DO THEM!
@@ -30,8 +28,6 @@ MonoBehaviour:
   - 'uhh '
   - UHHHH
   voice:
-  - {fileID: 8300000, guid: a8573e0cff7d2f948a867896b1d446bf, type: 3}
-  - {fileID: 8300000, guid: f827f8b30a6417b4baacefb1dc051f20, type: 3}
   - {fileID: 8300000, guid: 4bc44b62800363843b9044c3d2361e49, type: 3}
   - {fileID: 8300000, guid: 383c3eb996c3ce347bd185ca1c19e04e, type: 3}
   - {fileID: 8300000, guid: c224e587310897b46801a47794aa40a6, type: 3}

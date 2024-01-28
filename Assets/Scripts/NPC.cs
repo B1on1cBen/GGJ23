@@ -5,13 +5,16 @@ public class NPC : MonoBehaviour
 {
     static Transform player;
 
+    public bool sage;
     public bool ghost;
+    public bool princess;
     public Dialogue dialogue;
     public float timeBetweenPresses;
     public float totalPresses;
     public float moveSpeed;
     public bool canMove;
     Vector3 moveInput;
+    public CameraShake[] heads;
 
     // Add a detect range
 
@@ -20,6 +23,8 @@ public class NPC : MonoBehaviour
 
     public bool launched;
     public CameraShake shake;
+    bool delete;
+    private float deleteTime;
 
     void Awake()
     {
@@ -45,14 +50,32 @@ public class NPC : MonoBehaviour
         moveInput.y = 0;
     }
 
+    public void StartBob()
+    {
+         foreach (var head in heads)
+            head.enabled = true;
+    }
+
+    public void EndBob()
+    {
+        foreach (var head in heads)
+            head.enabled = false;
+    }
+
     void FixedUpdate()
     {
+        if (delete && Time.time >= deleteTime)
+            Destroy(gameObject);
+
         if (canMove && !ghost)
             Move();
     }
 
     private void Move()
     {
+        if (!sage)
+            return;
+
         rb.MovePosition(transform.position + moveInput * moveSpeed * Time.fixedDeltaTime);
         transform.localScale = new Vector3(-Mathf.Sign(moveInput.x),1,1);
     }
@@ -66,11 +89,18 @@ public class NPC : MonoBehaviour
 
     internal void Leave()
     {
-        Destroy(gameObject);
+        if (!princess)
+            Destroy(gameObject);
     }
 
     void OnDestroy()
     {
         GameManager.npcs.Remove(this);
+    }
+
+    internal void Delete(int v)
+    {
+        delete = true;
+        deleteTime = Time.time + v;
     }
 }

@@ -19,10 +19,15 @@ public class TitleScreen : MonoBehaviour
     private float lastPressTime;
     private int currentCharge;
 
+    public bool Credits;
+
     bool started;
 
     void Awake()
     {
+        if (Credits)
+            return;
+
         chargeAudioSource = GetComponent<AudioSource>();
     }
 
@@ -31,6 +36,9 @@ public class TitleScreen : MonoBehaviour
 
     private void Update()
     {
+        if (Credits)
+            return;
+            
         chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
         UpdateCharge();
     }

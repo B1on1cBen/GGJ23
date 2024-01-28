@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
 
     public static List<NPC> npcs = new List<NPC>();
 
+    public GameObject credits;
     public bool anger;
     public bool inIntro = true;
     public float launchForce;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] AudioSource NPCAudioSource;
     [SerializeField] AudioSource SlapAudioSource;
     [SerializeField] AudioSource MusicSource;
+    [SerializeField] AudioClip outroMusic;
     public AudioClip chargeSound;
     public float chargePitchMin;
     public float chargePitchMax;
@@ -173,6 +175,7 @@ public class GameManager : MonoBehaviour
     public void EndAnger()
     {
         NPCAudioSource.Stop();
+        Sage.EndBob();
         text.text = "I DON'T HAVE TIME FOR THIS!";
     }
 
@@ -181,7 +184,7 @@ public class GameManager : MonoBehaviour
         if (!currentNPC)
             return;
 
-        if (NPCAudioSource.isPlaying)
+        if (NPCAudioSource.isPlaying || currentNPC.name == "Mime")
             return;
 
         currentDialogueIndex++;
@@ -262,17 +265,29 @@ public class GameManager : MonoBehaviour
         playerAnimator.SetTrigger("Slap");
         PlaySlapSound();
 
+        currentNPC.EndBob();
         NPCAudioSource.Stop();
         text.text = "";
         dialogueUI.SetActive(false);
+        charging = false;
     }
 
     public void SlapHitStun()
     {
+        if (currentNPC.princess)
+        {
+            Lose();
+            return;
+        }
+
         state = GameState.HitStun;
         Debug.Log("Hitstun!");
-        currentNPC.shake.enabled = true;
-        currentNPC.shake.shakeDuration = hitStunTime; 
+
+        if (currentNPC.shake)
+        {
+            currentNPC.shake.enabled = true;
+            currentNPC.shake.shakeDuration = hitStunTime; 
+        }
         camera.shake.enabled = true;
         camera.shake.shakeDuration = hitStunTime + slapFollowThroughTime;
         endHitStunTime = Time.time + hitStunTime;
@@ -288,9 +303,8 @@ public class GameManager : MonoBehaviour
         currentNPC.GetComponent<Collider>().enabled = false;
         currentNPC.shake.enabled = false;
         currentNPC.Launch(launchForce);
-        npcsToDestroy.Add(currentNPC.gameObject);
+        currentNPC.Delete(3);
         currentNPC = null;
-        Invoke("DestroyNPC", 3);
 
         camera.shake.enabled = false;
         slapFollowThroughEnd = Time.time + slapFollowThroughTime;
@@ -302,25 +316,7 @@ public class GameManager : MonoBehaviour
         state = GameState.FirstSlap;
         canSlap = true;
         mash.SetActive(true);
-    }
-
-    public void StartGame()
-    {
-        GetComponent<PlayableDirector>().Stop();
-        inIntro = false;
-        MusicSource.Play();
-        EndDialogue();
-
-        camera.trackingPlayer = true;
-        camera.npcOffset = Vector3.zero;
-        wantedCameraZoom = cameraZoomMin;
-
-        // Start movement
-        player.canMove = true;
-        foreach(NPC npc in npcs)
-            npc.canMove = true;
-
-        state = GameState.Game;
+        audioMixer.SetFloat("Lowpass", lowPassMax);
     }
 
     public void PlaySlapSound()
@@ -356,16 +352,24 @@ public class GameManager : MonoBehaviour
         var colliders = Physics.OverlapSphere(player.transform.position, 1.25f, npcTouchPlayerMask);
         if (colliders.Length > 0)
         {
+            NPC npc = colliders[0].GetComponent<NPC>();
+            // if (npc.princess){
+            //     MusicSource.Stop();
+            //     PlayDialogue(npc);
+            //     return;
+            // }
+
             if (inIntro)
-                SageDialogue(colliders[0].GetComponent<NPC>());
+                SageDialogue(npc);
             else
-                PlayDialogue(colliders[0].GetComponent<NPC>());
+                PlayDialogue(npc);
         }
     }
 
     private void SageDialogue(NPC sage)
     {
         currentNPC = sage;
+        currentNPC.StartBob();
         currentDialogueIndex = 0;
         sage.canMove = false;
         dialogueUI.SetActive(true);
@@ -388,6 +392,7 @@ public class GameManager : MonoBehaviour
         currentDialogueIndex = 0;
         chargeBar.fillAmount = 0;
         currentNPC = talkingNPC;
+        currentNPC.StartBob();
         totalCharge = currentNPC.totalPresses;
 
         // Stop movement
@@ -407,16 +412,42 @@ public class GameManager : MonoBehaviour
             0, 
             0);
     }
+    
+    public void StartGame()
+    {
+        GetComponent<PlayableDirector>().Stop();
+        inIntro = false;
+        MusicSource.Play();
+        EndDialogue();
+
+        camera.trackingPlayer = true;
+        camera.npcOffset = Vector3.zero;
+        wantedCameraZoom = cameraZoomMin;
+
+        // Start movement
+        player.canMove = true;
+        foreach(NPC npc in npcs)
+            npc.canMove = true;
+
+        state = GameState.Game;
+        currentNPC = null;
+    }
 
     private void EndDialogue()
     {
+        if (currentNPC)
+            currentNPC.EndBob();
+
         playerAnimator.SetTrigger("SlapEnd");
         NPCAudioSource.Stop();
         text.text = "";
         dialogueUI.SetActive(false);
 
-        if (!currentNPC || currentNPC.ghost)
+        if (currentNPC && currentNPC.ghost)
             return;
+
+        if (!inIntro)
+            camera.trackingPlayer = true;
 
         camera.npcOffset = Vector3.zero;
         wantedCameraZoom = cameraZoomMin;
@@ -432,7 +463,10 @@ public class GameManager : MonoBehaviour
 
     private void Lose()
     {
-        SceneManager.LoadScene(2);
+        NPCAudioSource.Stop();
+        MusicSource.PlayOneShot(outroMusic);
+        credits.SetActive(true);
+        //SceneManager.LoadScene(2);
     }
 
     public void ActivateSage()

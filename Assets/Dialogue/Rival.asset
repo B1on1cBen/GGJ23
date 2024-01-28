@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Rival
   m_EditorClassIdentifier: 
   text:
-  - I FINALLY FOUND YOU!
   - You are destined to be my RIVAL in a game of YU-GI-MON THE GATHERING!
   - This time, I'm gonna WIN.
   - Because I have the STRONGER deck of cards!
@@ -21,7 +20,6 @@ MonoBehaviour:
   - just got a new...
   - set of SLEEVES!
   voice:
-  - {fileID: 8300000, guid: 4d451e7e8d7552b4c924158923fc3990, type: 3}
   - {fileID: 8300000, guid: 10af9ca0204fd8a44987c35caeebedff, type: 3}
   - {fileID: 8300000, guid: 643875b3c301aeb48861349bde6e353e, type: 3}
   - {fileID: 8300000, guid: 9262b7e815625ea458ef8d31b87563ba, type: 3}
