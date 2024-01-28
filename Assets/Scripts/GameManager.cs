@@ -13,11 +13,15 @@ public class GameManager : MonoBehaviour
         Game,
         InDialogue,
         Lose,
-        Slap
+        Slap,
+        Anger,
+        FirstSlap
     }
 
     public static List<NPC> npcs = new List<NPC>();
 
+    public bool anger;
+    public bool inIntro = true;
     public float launchForce;
     public float totalTime;
     public float chargeAmountPerPress;
@@ -26,6 +30,7 @@ public class GameManager : MonoBehaviour
     public float chargeBarSmoothing;
     public float cameraZoomSmoothing;
     public float cameraZoomMax;
+    public bool canSlap;
     float cameraZoomMin;
     public AudioClip[] slapSounds;
     public AudioSource chargeAudioSource;
@@ -36,9 +41,14 @@ public class GameManager : MonoBehaviour
     public float chargePitchMax;
     public float chargeReverbMin;
     public float chargeReverbMax;
+    public float muffleTime;
+    public float lowPassMin = 100;
+    public float lowPassMax = 22000;
     public NPC evilIntroNPC;
     public NPC HeroIntro1NPC;
     public NPC HeroIntro2NPC;
+    public NPC Sage;
+    public GameObject mash;
 
     [Space]
     [SerializeField] AudioMixer audioMixer;
@@ -49,6 +59,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject dialogueUI;
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] new PlayerCamera camera;
+    [SerializeField] Animator playerAnimator;
 
     public GameState state;
     float currentTime;
@@ -58,6 +69,9 @@ public class GameManager : MonoBehaviour
     float lastPressTime;
     float wantedCameraZoom;
 
+    float muffle;
+    float angerStartTime;
+    private float angerEndTime;
     List<GameObject> npcsToDestroy = new List<GameObject>();
 
     void Awake()
@@ -67,6 +81,11 @@ public class GameManager : MonoBehaviour
         dialogueUI.SetActive(false);
         cameraZoomMin = Camera.main.orthographicSize;
         wantedCameraZoom = cameraZoomMin;
+
+        // Stop movement
+        player.canMove = false;
+        foreach(NPC npc in npcs)
+            npc.canMove = false;
     }
 
     public void PlayEvilIntro()
@@ -90,10 +109,7 @@ public class GameManager : MonoBehaviour
 
         if (state == GameState.Intro)
         {
-            // Stop movement
-            player.canMove = false;
-            foreach(NPC npc in npcs)
-                npc.canMove = false;
+            CheckForNPCTouches();
         }
         else if (state == GameState.Game)
         {
@@ -106,6 +122,32 @@ public class GameManager : MonoBehaviour
             UpdateChargeInput();
             UpdateDialogue();
         }
+        else if (state == GameState.Anger)
+        {
+            if (!anger)
+                UpdateDialogue();
+            else
+            {
+                muffle = angerStartTime / angerEndTime;
+                muffle = Mathf.Clamp01(muffle);
+                float lowpass = Mathf.Lerp(lowPassMax, lowPassMin, muffle);
+                audioMixer.SetFloat("Lowpass", lowpass);
+            }
+        }
+        else if (state == GameState.FirstSlap)
+        {
+            if (Input.GetButtonDown("Jump"))
+                mash.SetActive(false);
+
+            UpdateChargeBar();
+            UpdateChargeInput();
+        }
+    }
+
+    public void EndAnger()
+    {
+        NPCAudioSource.Stop();
+        text.text = "I DON'T HAVE TIME FOR THIS!";
     }
 
     private void UpdateDialogue()
@@ -149,6 +191,8 @@ public class GameManager : MonoBehaviour
         chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMax, chargeBar.fillAmount);
         chargeAudioSource.PlayOneShot(chargeSound);
 
+        playerAnimator.SetTrigger("Charge");
+
         if (!currentNPC.launched && CanPress)
         {
             lastPressTime = Time.time + currentNPC.timeBetweenPresses;
@@ -190,6 +234,13 @@ public class GameManager : MonoBehaviour
 
     public void ExitIntro()
     {
+        state = GameState.FirstSlap;
+        canSlap = true;
+        mash.SetActive(true);
+    }
+
+    public void StartGame()
+    {
         state = GameState.Game;
         player.canMove = true;
         foreach(NPC npc in npcs)
@@ -227,8 +278,29 @@ public class GameManager : MonoBehaviour
         var colliders = Physics.OverlapSphere(player.transform.position, 2, npcTouchPlayerMask);
         if (colliders.Length > 0)
         {
-            PlayDialogue(colliders[0].GetComponent<NPC>());
+            if (inIntro)
+                SageDialogue(colliders[0].GetComponent<NPC>());
+            else
+                PlayDialogue(colliders[0].GetComponent<NPC>());
         }
+    }
+
+    private void SageDialogue(NPC sage)
+    {
+        currentNPC = sage;
+        currentDialogueIndex = 0;
+        sage.canMove = false;
+        dialogueUI.SetActive(true);
+
+        NPCAudioSource.PlayOneShot(currentNPC.dialogue.voice[0]);
+        text.text = currentNPC.dialogue.text[0];
+
+        camera.npcOffset = new Vector3(
+            (currentNPC.transform.position.x - player.transform.position.x) * 0.5f - camera.offset.x,
+            0, 
+            0);
+
+        state = GameState.Anger;
     }
 
     public void PlayDialogue(NPC talkingNPC)
@@ -282,5 +354,18 @@ public class GameManager : MonoBehaviour
     private void Lose()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void ActivateSage()
+    {
+        state = GameState.Intro;
+        Sage.canMove = true;
+    }
+
+    public void StartAnger()
+    {
+        anger = true;
+        angerStartTime = Time.time;
+        angerEndTime = Time.time + muffleTime;
     }
 }

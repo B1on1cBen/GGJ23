@@ -4,9 +4,11 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed;
     public bool canMove;
+    public bool cutscene;
     public float moveThreshold = 0.02f;
-    Vector3 moveInput;
+    [SerializeField] public Vector3 moveInput;
 
+    public Animator animator;
     Rigidbody rb;
 
     void Awake()
@@ -16,17 +18,27 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        moveInput = new Vector3(
-            Input.GetAxis("Horizontal"),
-            0,
-            Input.GetAxis("Vertical")
-        );
+        if (canMove)
+            moveInput = new Vector3(
+                Input.GetAxis("Horizontal"),
+                0,
+                Input.GetAxis("Vertical")
+            );
     }
 
     void FixedUpdate()
     {
-        if (canMove && moveInput.magnitude > moveThreshold)
+        if (cutscene)
+            return;
+            
+        if (canMove && moveInput.magnitude > moveThreshold){
             Move();
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
+        }
     }
 
     private void Move()

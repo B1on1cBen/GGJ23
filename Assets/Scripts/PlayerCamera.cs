@@ -15,7 +15,6 @@ public class PlayerCamera : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         wantedPosition = evilDude.position - Vector3.up + offset;
-        //wantedPosition = player.position + offset + npcOffset;
     }
 
     void FixedUpdate()
