@@ -47,10 +47,12 @@ public class TitleScreen : MonoBehaviour
 
         if (CanPress && Input.GetButtonDown("Jump"))
         {
-            lastPressTime = Time.time + .25f;
-            currentCharge += chargeAmountPerPress;    
-            currentCharge = Mathf.Clamp(currentCharge, 0, totalCharge);
-            chargeAudioSource.PlayOneShot(chargeSound);
+            Slap();
+            // lastPressTime = Time.time + .25f;
+            // currentCharge += chargeAmountPerPress;    
+            // currentCharge = Mathf.Clamp(currentCharge, 0, totalCharge);
+            // chargeAudioSource.PlayOneShot(chargeSound);
+            return;
         }
         
         chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMin, chargeBar.fillAmount);
