@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
     int currentDialogueIndex;
     float lastPressTime;
     float wantedCameraZoom;
+    bool charging;
 
     float muffle;
     float angerStartTime;
@@ -187,11 +188,17 @@ public class GameManager : MonoBehaviour
         if (!Input.GetButtonDown("Jump"))
             return;
 
+        if (!charging)
+        {
+            charging = true;
+            playerAnimator.SetTrigger("Charge");
+        }
+
         audioMixer.SetFloat("ChargeReverb", Mathf.Lerp(chargeReverbMin, chargeReverbMax, chargeBar.fillAmount));
         chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMax, chargeBar.fillAmount);
         chargeAudioSource.PlayOneShot(chargeSound);
-
-        playerAnimator.SetTrigger("Charge");
+        
+        playerAnimator.SetFloat("ChargeTime", chargeBar.fillAmount);
 
         if (!currentNPC.launched && CanPress)
         {
@@ -204,6 +211,7 @@ public class GameManager : MonoBehaviour
                 audioMixer.SetFloat("ChargeReverb", chargePitchMax);
                 chargeAudioSource.pitch = chargePitchMax;
                 chargeAudioSource.PlayOneShot(chargeSound);
+                playerAnimator.SetFloat("ChargeTime", chargeBar.fillAmount);
                 Slap();
             }
         }
