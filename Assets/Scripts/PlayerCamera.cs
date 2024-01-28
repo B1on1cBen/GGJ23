@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviour
     [HideInInspector] public Vector3 npcOffset;
     public float smoothingSpeed;
     Transform player;
+    public bool tracking;
 
     Vector3 wantedPosition;
     public CameraShake shake;
@@ -25,7 +26,8 @@ public class PlayerCamera : MonoBehaviour
         if (trackingPlayer)
             wantedPosition = player.position - Vector3.up + Vector3.right + offset + npcOffset;
 
-        transform.position = Vector3.Lerp(transform.position, wantedPosition, smoothingSpeed * Time.fixedDeltaTime);   
+        if (tracking)
+            transform.position = Vector3.Lerp(transform.position, wantedPosition, smoothingSpeed * Time.fixedDeltaTime);   
     }
 
     public void PanToEvilDude()

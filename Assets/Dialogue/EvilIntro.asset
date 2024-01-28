@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: EvilIntro
   m_EditorClassIdentifier: 
   text:
-  - This is a test for the bad guy thing.
+  - I'm going to pull this lever now!!!
   voice:
-  - {fileID: 8300000, guid: f1d6766287ec7b1458abc45e2fa34449, type: 3}
+  - {fileID: 8300000, guid: 780c9bc7eb6150d4d84610aff3444a2f, type: 3}

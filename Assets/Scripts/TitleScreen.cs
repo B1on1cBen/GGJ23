@@ -38,7 +38,7 @@ public class TitleScreen : MonoBehaviour
     {
         if (Credits)
             return;
-            
+
         chargeBar.fillAmount = Mathf.Lerp(chargeBar.fillAmount, currentCharge / totalCharge, chargeBarSmoothing * Time.deltaTime);
         UpdateCharge();
     }
@@ -50,7 +50,7 @@ public class TitleScreen : MonoBehaviour
         if (!started)
         {
             started = true;
-            prompt.SetActive(false);
+            //prompt.SetActive(false);
         }
 
         if (CanPress && Input.GetButtonDown("Jump"))
@@ -80,6 +80,7 @@ public class TitleScreen : MonoBehaviour
             return;
 
         title.SetActive(false);
+        prompt.SetActive(false);
         slapAudioSource.PlayOneShot(slapSound);
         Invoke("Play", 2);
     }

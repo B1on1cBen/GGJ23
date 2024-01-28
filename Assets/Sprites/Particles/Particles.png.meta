@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Particles_0
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 1638
+        width: 932
+        height: 1358
+      alignment: 9
+      pivot: {x: 0.9918937, y: 0.007303454}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a1c23b199e66f42a38df663735e2c5
+      internalID: -1452123711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Particles_1
+      rect:
+        serializedVersion: 2
+        x: 1828
+        y: 1632
+        width: 774
+        height: 1364
+      alignment: 9
+      pivot: {x: 1.0015929, y: 0.02158255}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08173f78d54edf47b2e0282f3436d4c
+      internalID: -2042273698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Particles_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 1442
+        height: 1403
+      alignment: 9
+      pivot: {x: 0.51584595, y: 0.4970563}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9b4390a881b524c93f7b1c81818823
+      internalID: -1782716144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Particles_3
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 426
+        width: 782
+        height: 915
+      alignment: 9
+      pivot: {x: 0.5000003, y: 0.5045139}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9891dcce924f44db9c11a1570efb7d
+      internalID: 1198685301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +203,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Particles_0: -1452123711
+      Particles_1: -2042273698
+      Particles_2: -1782716144
+      Particles_3: 1198685301
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

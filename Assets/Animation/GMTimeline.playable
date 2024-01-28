@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 18.4
+    m_Start: 18.11666666666669
     m_ClipIn: 0
     m_Asset: {fileID: -7173881133088324667}
     m_Duration: 4.604512471655329
@@ -108,10 +108,10 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Anger
   - m_Version: 1
-    m_Start: 23.004512471655328
+    m_Start: 22.91666666666669
     m_ClipIn: 0
     m_Asset: {fileID: 9214053118719221479}
-    m_Duration: 2.76
+    m_Duration: 1.6284807256235823
     m_TimeScale: 1
     m_ParentTrack: {fileID: -8790367537966236627}
     m_EaseInDuration: 0
@@ -241,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 18.2
+  m_Time: 17.916666666666686
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 1f9fd50896e03454b8e54ebc1a75ffb8, type: 2}
@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 7.5719999999999885
+  m_Time: 7.288666666666667
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: fd87e5e7101e23741b180c0ec77e745f, type: 2}
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 15.05
+  m_Time: 14.766666666666687
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: e788b1e5abf37fe43a90ff8126f9bbc0, type: 2}
@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: PantoEvilGuy
   m_EditorClassIdentifier: 
-  m_Time: 6.266666666666655
+  m_Time: 5.983333333333333
   m_Retroactive: 0
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: c9041d85a08b81c4c905dc214fb6c546, type: 2}
@@ -513,7 +513,7 @@ MonoBehaviour:
     m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: -9004563280490689318}
-    m_Duration: 23.004512471655328
+    m_Duration: 22.721179138322018
     m_TimeScale: 1
     m_ParentTrack: {fileID: -111401743905911417}
     m_EaseInDuration: 0
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 22.966666666666665
+  m_Time: 22.68333333333335
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 9a263d71b081a884ab286264a2dda455, type: 2}
@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 25.76451247165533
+  m_Time: 24.545147392290268
   m_Retroactive: 0
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: 683266c1a9e406a46961f1e1be50434c, type: 2}
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
   m_Name: Signal Emitter
   m_EditorClassIdentifier: 
-  m_Time: 1.3833333333333309
+  m_Time: 1.9666666666666666
   m_Retroactive: 0
   m_EmitOnce: 1
   m_Asset: {fileID: 11400000, guid: e78613e3581976a4880ea9de494cffbd, type: 2}
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 25.76451247165533
+    m_Start: 24.54514739229027
     m_ClipIn: 0
     m_Asset: {fileID: -4376726560800510640}
     m_Duration: 1
@@ -867,11 +867,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 17.210538001624602
+    m_PostExtrapolationTime: 16.927204668291292
     m_PreExtrapolationTime: 0
     m_DisplayName: ScreenBarsIn
   - m_Version: 1
-    m_Start: 18.4
+    m_Start: 18.11666666666669
     m_ClipIn: 0
     m_Asset: {fileID: 6895164255211627764}
     m_Duration: 4.60451247165533
@@ -936,7 +936,7 @@ MonoBehaviour:
     m_Recordable: 1
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 2.7600000000000016
+    m_PostExtrapolationTime: 1.8239682539682534
     m_PreExtrapolationTime: 0
     m_DisplayName: Recorded (1)
   m_Markers:
@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
   m_Name: AudioPlayableAsset
   m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: fac0f33b9136dd340a54762f94588059, type: 3}
+  m_Clip: {fileID: 8300000, guid: 2d06c25cb5364e242a5a4c4c822bc546, type: 3}
   m_Loop: 0
   m_bufferingTime: 0.1
   m_ClipProperties:

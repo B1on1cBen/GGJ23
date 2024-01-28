@@ -13,14 +13,22 @@ MonoBehaviour:
   m_Name: PrincessLinesC
   m_EditorClassIdentifier: 
   text:
-  - Please help me!
-  - I am the princess!
-  - I-- Need saving!
-  - This guy! He's too strong!
-  - I-iiiiiiineeeeeeed help!
+  - Oh thank you good sir for saving me!
+  - I am so grateful!
+  - Please untie me!
+  - Boy, uh, you know after this, I was thinking uh, maybe we could go out to eat.
+  - You know, because you're the hero, and like, that's kinda what people do.
+  - But uh, you gotta untie me first, you know, I- I noticed you're not doing that.
+  - Uh, but, DON'T DO ANYTHING ELSE, uh...
+  - JUST untie me, don't think about doing ANYTHING else.
+  - You know, because you're the hero, and like, that's kinda what people do.
   voice:
-  - {fileID: 8300000, guid: 2fba9a4e305b4a64d837fc1c82dcb2ad, type: 3}
-  - {fileID: 8300000, guid: 6e034be2a77579d4596cc6fbb636005e, type: 3}
-  - {fileID: 8300000, guid: 8bda0295f48a7304a91f80ae97976d71, type: 3}
-  - {fileID: 8300000, guid: 8a48d1998213d87419ee5c3168406be3, type: 3}
-  - {fileID: 8300000, guid: fadd106b746947241bcc764767b92800, type: 3}
+  - {fileID: 8300000, guid: 75f01d4e56e8a454689dd5cad7c7d5b5, type: 3}
+  - {fileID: 8300000, guid: b608054dcda828f48abe1db17baf21fc, type: 3}
+  - {fileID: 8300000, guid: fe3c49657e9c7264985b17fbdf5eb4b9, type: 3}
+  - {fileID: 8300000, guid: 73fd3444a748211419c848811a5f2f3f, type: 3}
+  - {fileID: 8300000, guid: 15ea81c0d137d9348986cdbc2ab46fff, type: 3}
+  - {fileID: 8300000, guid: 6eb83ec00fe8c0645bf01e85ea1a40db, type: 3}
+  - {fileID: 8300000, guid: 9677910f627bdbc47a61bb7f8536558b, type: 3}
+  - {fileID: 8300000, guid: 4e468e26cd1b09d45b47af821074d10c, type: 3}
+  - {fileID: 8300000, guid: 15ea81c0d137d9348986cdbc2ab46fff, type: 3}

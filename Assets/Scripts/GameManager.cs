@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     float currentTime;
     float currentCharge;
     NPC currentNPC;
+    private bool over;
     int currentDialogueIndex;
     float lastPressTime;
     float wantedCameraZoom;
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayEvilIntro()
     {
+        camera.tracking = true;
         PlayDialogue(evilIntroNPC);
     }
 
@@ -263,7 +265,6 @@ public class GameManager : MonoBehaviour
         currentNPC.launched = true;
         Debug.Log("SLAP!!!");
         playerAnimator.SetTrigger("Slap");
-        PlaySlapSound();
 
         currentNPC.EndBob();
         NPCAudioSource.Stop();
@@ -279,6 +280,8 @@ public class GameManager : MonoBehaviour
             Lose();
             return;
         }
+
+        PlaySlapSound();
 
         state = GameState.HitStun;
         Debug.Log("Hitstun!");
@@ -349,15 +352,18 @@ public class GameManager : MonoBehaviour
         if (currentNPC)
             return;
 
+        if (over)
+            return;
+
         var colliders = Physics.OverlapSphere(player.transform.position, 1.25f, npcTouchPlayerMask);
         if (colliders.Length > 0)
         {
             NPC npc = colliders[0].GetComponent<NPC>();
-            // if (npc.princess){
-            //     MusicSource.Stop();
-            //     PlayDialogue(npc);
-            //     return;
-            // }
+            if (npc.princess){
+                MusicSource.Stop();
+                PlayDialogue(npc);
+                return;
+            }
 
             if (inIntro)
                 SageDialogue(npc);
@@ -464,6 +470,8 @@ public class GameManager : MonoBehaviour
     private void Lose()
     {
         NPCAudioSource.Stop();
+        over = true;
+        currentNPC = null;
         MusicSource.PlayOneShot(outroMusic);
         credits.SetActive(true);
         //SceneManager.LoadScene(2);
