@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -27,8 +28,20 @@ public class GameManager : MonoBehaviour
     public float cameraZoomMax;
     float cameraZoomMin;
     public AudioClip[] slapSounds;
+    public AudioSource chargeAudioSource;
+    [SerializeField] AudioSource NPCAudioSource;
+    [SerializeField] AudioSource SlapAudioSource;
+    public AudioClip chargeSound;
+    public float chargePitchMin;
+    public float chargePitchMax;
+    public float chargeReverbMin;
+    public float chargeReverbMax;
+    public NPC evilIntroNPC;
+    public NPC HeroIntro1NPC;
+    public NPC HeroIntro2NPC;
 
     [Space]
+    [SerializeField] AudioMixer audioMixer;
     [SerializeField] Slider slider;
     [SerializeField] Image chargeBar;
     [SerializeField] LayerMask npcTouchPlayerMask;
@@ -38,7 +51,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] new PlayerCamera camera;
 
     public GameState state;
-    AudioSource audioSource;
     float currentTime;
     float currentCharge;
     NPC currentNPC;
@@ -50,13 +62,26 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        //state = GameState.Game;
         currentTime = totalTime;
-        audioSource = GetComponent<AudioSource>();
         dialogueUI.SetActive(false);
         cameraZoomMin = Camera.main.orthographicSize;
-
-        state = GameState.Game;
         wantedCameraZoom = cameraZoomMin;
+    }
+
+    public void PlayEvilIntro()
+    {
+        PlayDialogue(evilIntroNPC);
+    }
+
+    public void PlayHeroIntro1()
+    {
+        PlayDialogue(HeroIntro1NPC);
+    }
+
+    public void PlayHeroIntro2()
+    {
+        PlayDialogue(HeroIntro2NPC);
     }
 
     void Update()
@@ -69,9 +94,6 @@ public class GameManager : MonoBehaviour
             player.canMove = false;
             foreach(NPC npc in npcs)
                 npc.canMove = false;
-            
-            // Do something, but nothing for now
-
         }
         else if (state == GameState.Game)
         {
@@ -80,8 +102,8 @@ public class GameManager : MonoBehaviour
         }
         else if (state == GameState.InDialogue)
         {
-            UpdateChargeInput();
             UpdateChargeBar();
+            UpdateChargeInput();
             UpdateDialogue();
         }
     }
@@ -91,20 +113,19 @@ public class GameManager : MonoBehaviour
         if (!currentNPC)
             return;
 
-        if (audioSource.isPlaying)
+        if (NPCAudioSource.isPlaying)
             return;
 
         currentDialogueIndex++;
         if (currentDialogueIndex > currentNPC.dialogue.text.Length - 1)
         {
             currentNPC.Leave();
-            currentNPC = null;
             EndDialogue();
             return;
         }
         else
         {        
-            audioSource.PlayOneShot(currentNPC.dialogue.voice[currentDialogueIndex]);
+            NPCAudioSource.PlayOneShot(currentNPC.dialogue.voice[currentDialogueIndex]);
             text.text = currentNPC.dialogue.text[currentDialogueIndex];
         }
     }
@@ -121,13 +142,24 @@ public class GameManager : MonoBehaviour
 
     private void UpdateChargeInput()
     {
-        if (Input.GetButtonDown("Jump") && !currentNPC.launched && CanPress)
+        if (!Input.GetButtonDown("Jump"))
+            return;
+
+        audioMixer.SetFloat("ChargeReverb", Mathf.Lerp(chargeReverbMin, chargeReverbMax, chargeBar.fillAmount));
+        chargeAudioSource.pitch = Mathf.Lerp(chargePitchMin, chargePitchMax, chargeBar.fillAmount);
+        chargeAudioSource.PlayOneShot(chargeSound);
+
+        if (!currentNPC.launched && CanPress)
         {
             lastPressTime = Time.time + currentNPC.timeBetweenPresses;
             currentCharge += chargeAmountPerPress;
             if (currentCharge >= totalCharge)
             {
                 chargeBar.fillAmount = 1;
+                wantedCameraZoom = cameraZoomMax;
+                audioMixer.SetFloat("ChargeReverb", chargePitchMax);
+                chargeAudioSource.pitch = chargePitchMax;
+                chargeAudioSource.PlayOneShot(chargeSound);
                 Slap();
             }
         }
@@ -156,9 +188,18 @@ public class GameManager : MonoBehaviour
         EndDialogue();
     }
 
+    public void ExitIntro()
+    {
+        state = GameState.Game;
+        player.canMove = true;
+        foreach(NPC npc in npcs)
+            npc.canMove = true;
+        camera.trackingPlayer = true;
+    }
+
     public void PlaySlapSound()
     {
-        audioSource.PlayOneShot(slapSounds[Random.Range(0, slapSounds.Length)]);
+        SlapAudioSource.PlayOneShot(slapSounds[Random.Range(0, slapSounds.Length)]);
     }
 
     private void DestroyNPC()
@@ -186,13 +227,13 @@ public class GameManager : MonoBehaviour
         var colliders = Physics.OverlapSphere(player.transform.position, 2, npcTouchPlayerMask);
         if (colliders.Length > 0)
         {
-            state = GameState.InDialogue;
             PlayDialogue(colliders[0].GetComponent<NPC>());
         }
     }
 
     public void PlayDialogue(NPC talkingNPC)
     {
+        state = GameState.InDialogue;
         currentCharge = 0;
         currentDialogueIndex = 0;
         chargeBar.fillAmount = 0;
@@ -207,21 +248,25 @@ public class GameManager : MonoBehaviour
         // Set up dialogue
         dialogueUI.SetActive(true);
 
-        audioSource.PlayOneShot(currentNPC.dialogue.voice[0]);
+        NPCAudioSource.PlayOneShot(currentNPC.dialogue.voice[0]);
         text.text = currentNPC.dialogue.text[0];
 
         // Move camera
         camera.npcOffset = new Vector3(
             (currentNPC.transform.position.x - player.transform.position.x) * 0.5f - camera.offset.x,
             0, 
-            2);
+            0);
     }
 
     private void EndDialogue()
     {
-        audioSource.Stop();
+        NPCAudioSource.Stop();
         text.text = "";
         dialogueUI.SetActive(false);
+
+        if (currentNPC.ghost)
+            return;
+
         camera.npcOffset = Vector3.zero;
         wantedCameraZoom = cameraZoomMin;
 
@@ -231,6 +276,7 @@ public class GameManager : MonoBehaviour
             npc.canMove = true;
 
         state = GameState.Game;
+        currentNPC = null;
     }
 
     private void Lose()
