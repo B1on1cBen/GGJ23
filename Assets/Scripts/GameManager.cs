@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -33,12 +34,14 @@ public class GameManager : MonoBehaviour
     public float cameraZoomSmoothing;
     public float cameraZoomMax;
     public float hitStunTime;
+    public float slapFollowThroughTime;
     public bool canSlap;
     float cameraZoomMin;
     public AudioClip[] slapSounds;
     public AudioSource chargeAudioSource;
     [SerializeField] AudioSource NPCAudioSource;
     [SerializeField] AudioSource SlapAudioSource;
+    [SerializeField] AudioSource MusicSource;
     public AudioClip chargeSound;
     public float chargePitchMin;
     public float chargePitchMax;
@@ -77,8 +80,7 @@ public class GameManager : MonoBehaviour
     float angerStartTime;
     private float angerEndTime;
     List<GameObject> npcsToDestroy = new List<GameObject>();
-    public float endHitStunTime;
-    public float slapFollowThroughTime;
+    private float endHitStunTime;
 
     void Awake()
     {
@@ -160,7 +162,10 @@ public class GameManager : MonoBehaviour
             if (Time.time >= slapFollowThroughEnd)
             {
                 camera.shake.enabled = false;
-                EndDialogue();
+                if (inIntro)
+                    StartGame();
+                else
+                    EndDialogue();
             }
         }
     }
@@ -255,32 +260,39 @@ public class GameManager : MonoBehaviour
         currentNPC.launched = true;
         Debug.Log("SLAP!!!");
         playerAnimator.SetTrigger("Slap");
+        PlaySlapSound();
 
         NPCAudioSource.Stop();
         text.text = "";
         dialogueUI.SetActive(false);
-
-        endHitStunTime = Time.time + hitStunTime;
     }
 
     public void SlapHitStun()
     {
         state = GameState.HitStun;
         Debug.Log("Hitstun!");
-        currentNPC.shake.shakeDuration = hitStunTime;
+        currentNPC.shake.enabled = true;
+        currentNPC.shake.shakeDuration = hitStunTime; 
+        camera.shake.enabled = true;
+        camera.shake.shakeDuration = hitStunTime + slapFollowThroughTime;
+        endHitStunTime = Time.time + hitStunTime;
     }
 
     public void SlapLaunch()
     {
+        if (!currentNPC)
+            return;
+
+        playerAnimator.SetTrigger("SlapFollowThrough");
         // Murder NPC after slap, then go back to normal
-        currentNPC.shake.shakeDuration = 0;
+        currentNPC.GetComponent<Collider>().enabled = false;
+        currentNPC.shake.enabled = false;
         currentNPC.Launch(launchForce);
         npcsToDestroy.Add(currentNPC.gameObject);
         currentNPC = null;
         Invoke("DestroyNPC", 3);
 
-        camera.shake.enabled = true;
-        camera.shake.shakeDuration = slapFollowThroughTime;
+        camera.shake.enabled = false;
         slapFollowThroughEnd = Time.time + slapFollowThroughTime;
         state = GameState.SlapFollowThrough;
     }
@@ -294,11 +306,21 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        state = GameState.Game;
+        GetComponent<PlayableDirector>().Stop();
+        inIntro = false;
+        MusicSource.Play();
+        EndDialogue();
+
+        camera.trackingPlayer = true;
+        camera.npcOffset = Vector3.zero;
+        wantedCameraZoom = cameraZoomMin;
+
+        // Start movement
         player.canMove = true;
         foreach(NPC npc in npcs)
             npc.canMove = true;
-        camera.trackingPlayer = true;
+
+        state = GameState.Game;
     }
 
     public void PlaySlapSound()
@@ -331,7 +353,7 @@ public class GameManager : MonoBehaviour
         if (currentNPC)
             return;
 
-        var colliders = Physics.OverlapSphere(player.transform.position, 1.1f, npcTouchPlayerMask);
+        var colliders = Physics.OverlapSphere(player.transform.position, 1.25f, npcTouchPlayerMask);
         if (colliders.Length > 0)
         {
             if (inIntro)
@@ -388,11 +410,12 @@ public class GameManager : MonoBehaviour
 
     private void EndDialogue()
     {
+        playerAnimator.SetTrigger("SlapEnd");
         NPCAudioSource.Stop();
         text.text = "";
         dialogueUI.SetActive(false);
 
-        if (currentNPC.ghost)
+        if (!currentNPC || currentNPC.ghost)
             return;
 
         camera.npcOffset = Vector3.zero;

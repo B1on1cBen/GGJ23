@@ -26,8 +26,11 @@ public class NPC : MonoBehaviour
         if (!player)
             player = GameObject.Find("Player").transform;
 
-        shake = gameObject.AddComponent<CameraShake>();
-        shake.enabled = false;
+        shake = gameObject.GetComponent<CameraShake>();
+
+        if (shake)
+            shake.enabled = false;
+            
         GameManager.npcs.Add(this);
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
@@ -57,7 +60,7 @@ public class NPC : MonoBehaviour
     public void Launch(float force)
     {
         launched = true;
-        rb.AddForce(new Vector3(-1 * Mathf.Sign(transform.localScale.x), 1, 0) * force, ForceMode.Impulse);
+        rb.AddForce(new Vector3(Mathf.Sign(transform.localScale.x), 1, 0) * force, ForceMode.Impulse);
         animator.SetTrigger("spin");
     }
 

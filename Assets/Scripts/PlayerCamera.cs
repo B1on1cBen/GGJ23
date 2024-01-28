@@ -16,7 +16,7 @@ public class PlayerCamera : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         wantedPosition = evilDude.position - Vector3.up + offset;
-        shake = gameObject.AddComponent<CameraShake>();
+        shake = gameObject.GetComponent<CameraShake>();
         shake.enabled = false;
     }
 
